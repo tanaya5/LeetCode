@@ -1,0 +1,36 @@
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int newLength = 0 ;
+        
+        // base case 1
+        if(nums.length == 0)
+            return 0;
+        
+        // base case 2
+        if(nums.length == 1)
+            return 1;
+        
+        // for rest of cases
+        int i = 0, j = 1;
+        int prev = nums[i];
+        int curr = nums[j];
+        while(j<nums.length)
+        {
+            curr = nums[j];
+            if(prev == curr)
+            {
+                j++;
+                
+            }
+            else
+            {
+                nums[i+1] = nums[j];
+                i ++;
+                j ++;
+                prev = nums[i];
+            }
+        }
+        newLength = i+1;
+        return newLength;
+    }
+}
